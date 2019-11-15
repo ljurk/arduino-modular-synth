@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <Wire.h>
 #include <MsTimer2.h>
 
@@ -33,7 +34,7 @@ int CV1;
 int CV2;
 int CV3;
 
-void updateCV(word DC_Value) {
+void updateCV(int DC_Value) {
   Wire.beginTransmission(DAC_address);
   Wire.write(byte((DC_Value & 0x0f00) >> 8));
   Wire.write(byte(DC_Value & 0xff));
